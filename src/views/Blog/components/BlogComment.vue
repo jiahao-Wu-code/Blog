@@ -27,6 +27,7 @@ export default {
   },
   created() {
     this.$bus.$on("mainScroll", this.handleScroll);
+    console.log('first')
   },
   destroyed() {
     this.$bus.$off("mainScroll", this.handleScroll);
