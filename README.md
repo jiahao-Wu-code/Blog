@@ -17,3 +17,5 @@ yarn build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 组件下面 test.vue 文件 为每个组件的测试文件
