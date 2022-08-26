@@ -1,11 +1,11 @@
 <template>
   <ul class="contact-container">
     <li>
-      <a href="">
+      <a href="https://github.com/jiahao-Wu-code" target="_blank">
         <div class="icon">
           <Icon type="github" />
         </div>
-        <span>DuYi-Edu</span>
+        <span>Yi-co</span>
       </a>
     </li>
     <li>
@@ -13,7 +13,7 @@
         <div class="icon">
           <Icon type="mail" />
         </div>
-        <span>23423424234@qq.com</span>
+        <span>1696764441@qq.com</span>
       </a>
     </li>
     <li>
@@ -23,28 +23,28 @@
         <div class="icon">
           <Icon type="qq" />
         </div>
-        <span>3263023350</span>
+        <span>1696764441</span>
       </a>
-      <div class="pop">
+      <!-- <div class="pop">
         <img
           src="http://www.duyiedu.com/source/img/%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BA%8C%E7%BB%B4%E7%A0%81.png"
           alt=""
         />
-      </div>
+      </div> -->
     </li>
     <li>
       <a>
         <div class="icon weixin">
           <Icon type="weixin" />
         </div>
-        <span>dsfggasas</span>
+        <span>Yi-co</span>
       </a>
-      <div class="pop">
+      <!-- <div class="pop">
         <img
           src="http://www.duyiedu.com/source/img/%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BA%8C%E7%BB%B4%E7%A0%81.png"
           alt=""
         />
-      </div>
+      </div> -->
     </li>
   </ul>
 </template>

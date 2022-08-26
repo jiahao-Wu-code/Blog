@@ -1,12 +1,12 @@
 <template>
   <div class="site-aside-container">
-    <Avatar url="http://mdrs.yuanjin.tech/FgMwAPYq17So9nwVH44ltDHo7u3c" />
-    <h1 class="title">龙傲天的小窝</h1>
+    <Avatar
+      url="https://img1.baidu.com/it/u=719590741,1199723171&fm=253&fmt=auto&app=138&f=JPEG?w=375&h=500"
+    />
+    <h1 class="title">哆啦A梦</h1>
     <Menu />
     <Contact />
-    <p class="footer">
-      黑ICP备17001719号
-    </p>
+    <p class="footer"></p>
   </div>
 </template>
 
