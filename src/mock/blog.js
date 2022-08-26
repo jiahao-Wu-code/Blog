@@ -33,7 +33,7 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, "get", function(options) {
           "scanNumber|0-3000": 0,
           "commentNumber|0-300": 30,
           "thumb|1": [
-            Mock.Random.image("300x250", "#000", "#fff", "Random Image"),
+            'https://img2.baidu.com/it/u=3803635102,3335465051&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
             null,
           ],
           createDate: `@date('T')`,
