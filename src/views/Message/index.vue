@@ -1,10 +1,10 @@
 <template>
-  <div class="blog-comment-container" >
+  <div class="message-container" ref="messageContainer">
     <MessageArea
       title="留言板"
       :subTitle="`(${data.total})`"
-      :list="data.rows"
       :isListLoading="isLoading"
+      :list="data.rows"
       @submit="handleSubmit"
     />
   </div>
@@ -13,9 +13,9 @@
 <script>
 import MessageArea from "@/components/MessageArea";
 import fetchData from "@/mixins/fetchData.js";
-import { getComments, postComment } from "@/api/blog.js";
+import * as msgApi from "@/api/message.js";
+import mainScroll from "@/mixins/mainScroll.js";
 export default {
-  mixins: [fetchData({ total: 0, rows: [] })],
   components: {
     MessageArea,
   },
@@ -25,6 +25,7 @@ export default {
       limit: 10,
     };
   },
+  mixins: [fetchData({ total: 0, rows: [] }), mainScroll("messageContainer")],
   created() {
     this.$bus.$on("mainScroll", this.handleScroll);
   },
@@ -37,6 +38,9 @@ export default {
     },
   },
   methods: {
+    async fetchData() {
+      return msgApi.getMessages(this.page, this.limit);
+    },
     handleScroll(dom) {
       if (this.isLoading || !dom) {
         // 目前正在加载更多
@@ -47,9 +51,6 @@ export default {
       if (dec <= range) {
         this.fetchMore();
       }
-    },
-    async fetchData() {
-      return await getComments(this.$route.params.id, this.page, this.limit);
     },
     // 加载下一页
     async fetchMore() {
@@ -64,22 +65,26 @@ export default {
       this.data.rows = this.data.rows.concat(resp.rows);
       this.isLoading = false;
     },
-    async handleSubmit(formData, callback) {
-      const resp = await postComment({
-        blogId: this.$route.params.id,
-        ...formData,
-      });
+    async handleSubmit(data, callback) {
+      const resp = await msgApi.postMessage(data);
+      callback("感谢您的留言");
       this.data.rows.unshift(resp);
-      this.data.total++;
-      callback("留言成功"); // 告诉子组件，我这边处理完了，你继续
     },
   },
 };
 </script>
 
-<style scoped lang="less">
-.blog-comment-container {
-  margin: 30px 0;
+<style scoped>
+.message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 25px 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.message-area-container {
+  width: 700px;
+  margin: 0 auto;
 }
 </style>
-
