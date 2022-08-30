@@ -38,12 +38,6 @@ export default {
           exact: false, // 激活状态是否要精确匹配
         },
         {
-          name: "About",
-          title: "关于我",
-          icon: "about",
-          exact: true,
-        },
-        {
           name: "Project",
           title: "项目&效果",
           icon: "code",
