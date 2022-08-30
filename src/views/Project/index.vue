@@ -49,7 +49,6 @@ export default {
   },
   async created() {
     const res = await getProject();
-    // console.log(res)
     this.data = res;
     this.loading = false;
   },
