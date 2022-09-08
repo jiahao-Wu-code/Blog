@@ -49,6 +49,12 @@ export default {
           icon: "chat",
           exact: true,
         },
+        {
+          name: "Chart",
+          title: "图表",
+          icon: "chart",
+          exact: true,
+        }
       ],
     };
   },

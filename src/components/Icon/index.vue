@@ -4,23 +4,23 @@
 
 <script>
 const classMap = {
-  home: "iconzhuye",
-  success: "iconzhengque",
-  error: "iconcuowu",
-  close: "iconguanbi",
-  warn: "iconjinggao",
-  info: "iconxinxi",
-  blog: "iconblog",
-  code: "iconcode",
-  about: "iconset_about_hov",
-  weixin: "iconweixin",
-  mail: "iconemail",
-  github: "icongithub",
-  qq: "iconsign_qq",
-  arrowUp: "iconiconfonticonfonti2copy",
-  arrowDown: "iconiconfonticonfonti2",
-  empty: "iconempty",
-  chat: "iconliuyan",
+  home: "icon-shouye",
+  success: "icon-success",
+  error: "icon-error",
+  close: "icon-close",
+  warn: "icon-warn",
+  info: "icon-info",
+  blog: "icon-blog",
+  code: "icon-code",
+  weixin: "icon-weixin1",
+  mail: "icon-youxiang",
+  github: "icon-github-fill",
+  qq: "icon-QQ",
+  arrowUp: "icon-arrow-up",
+  arrowDown: "icon-arrow-down",
+  empty: "icon-empty",
+  chat: "icon-liuyanban-05",
+  chart:"icon-shuju"
 };
 export const types = Object.keys(classMap);
 export default {
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-@import "//at.alicdn.com/t/font_2164449_nalfgtq7il.css";
+@import "//at.alicdn.com/t/c/font_3634838_irsfrvpeoud.css";
 .iconfont {
   color: inherit;
   font-size: inherit;

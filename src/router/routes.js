@@ -3,6 +3,7 @@ import Blog from "@/views/Blog";
 import Project from "@/views/Project";
 import Message from "@/views/Message";
 import BlogDetail from "@/views/Blog/Detail";
+import Chart from "@/views/Chart"
 
 export default [
   { name: "Home", path: "/", component: Home },
@@ -11,4 +12,5 @@ export default [
   { name: "BlogDetail", path: "/article/:id", component: BlogDetail },
   { name: "Project", path: "/project", component: Project },
   { name: "Message", path: "/message", component: Message },
+  { name: "Chart", path: "/chart", component: Chart },
 ];
