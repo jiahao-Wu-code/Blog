@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "echarts": "^5.3.3",
     "highlight.js": "^10.5.0",
     "mockjs": "^1.1.0",
     "querystring": "^0.2.0",
