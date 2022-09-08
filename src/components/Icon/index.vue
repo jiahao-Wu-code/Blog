@@ -20,7 +20,11 @@ const classMap = {
   arrowDown: "icon-arrow-down",
   empty: "icon-empty",
   chat: "icon-liuyanban-05",
-  chart:"icon-shuju"
+  chart: "icon-shuju",
+  project: "icon-communication",
+  message: "icon-Messages",
+  user: "icon-user-01",
+  article: "icon-wenzhang",
 };
 export const types = Object.keys(classMap);
 export default {
@@ -40,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-@import "//at.alicdn.com/t/c/font_3634838_irsfrvpeoud.css";
+@import "//at.alicdn.com/t/c/font_3634838_f9mjt07nliw.css";
 .iconfont {
   color: inherit;
   font-size: inherit;
