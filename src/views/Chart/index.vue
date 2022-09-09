@@ -2,44 +2,20 @@
 <template>
   <div class="chart-container">
     <div class="info">
-      <div class="card" v-for="item in chartData" :key="item.id">
+      <div
+        class="card"
+        v-for="item in chartData"
+        :key="item.id"
+        @click="handleClick(item.route)"
+      >
         <img :src="item.url" class="icon" :alt="item.title" />
         <div class="desc">
           <span class="title">{{ item.title }}</span>
           <span class="num">{{ item.total }}</span>
         </div>
       </div>
-      <!-- <div class="card">
-        <img
-          src="https://github.com/jiahao-Wu-code/Imags/blob/main/imgs/message.png?raw=true"
-          class="icon"
-        />
-        <div class="desc">
-          <span class="title">Messages</span>
-          <span class="num">100240</span>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="https://github.com/jiahao-Wu-code/Imags/blob/main/imgs/aa.png?raw=true"
-          class="icon"
-        />
-        <div class="desc">
-          <span class="title">Articles</span>
-          <span class="num">100240</span>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="https://github.com/jiahao-Wu-code/Imags/blob/main/imgs/project.png?raw=true"
-          class="icon"
-        />
-        <div class="desc">
-          <span class="title">Projects</span>
-          <span class="num">100240</span>
-        </div>
-      </div> -->
     </div>
+    <div id="chart"></div>
   </div>
 </template>
 
@@ -50,51 +26,228 @@ import chartData from "./data";
 export default {
   data() {
     return {
-      articalOption: {
+      chartOption: {
+        backgroundColor: "#202020",
         title: {
-          text: "文章数据统计",
+          top: 20,
+          text: "View",
+          textStyle: {
+            fontWeight: "normal",
+            fontSize: 16,
+            color: "#F1F1F3",
+          },
+          left: "1%",
         },
-        series: [
+        tooltip: {
+          trigger: "axis",
+        },
+        legend: {
+          top: 20,
+          icon: "rect",
+          itemWidth: 14,
+          itemHeight: 5,
+          itemGap: 13,
+          data: ["Visitor", "Message", "Project", "Artical"],
+          right: "4%",
+          textStyle: {
+            fontSize: 12,
+            color: "#F1F1F3",
+          },
+        },
+        grid: {
+          top: 100,
+          left: "2%",
+          right: "2%",
+          bottom: "5%",
+          containLabel: true,
+        },
+        xAxis: [
           {
-            type: "pie",
-            data: [
-              {
-                value: 330,
-                name: "浏览量",
+            type: "category",
+            boundaryGap: false,
+            axisLine: {
+              lineStyle: {
+                color: "#57617B",
               },
-              {
-                value: 200,
-                name: "点赞数",
-              },
-              {
-                value: 248,
-                name: "评论数",
-              },
-            ],
+            },
+            data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
           },
         ],
-      },
-      messageOption: {
-        title: {
-          text: "留言数据统计",
-        },
+        yAxis: [
+          {
+            type: "value",
+            // name: "(%)",
+            axisTick: {
+              show: false,
+            },
+            axisLine: {
+              lineStyle: {
+                color: "#57617B",
+              },
+            },
+            axisLabel: {
+              margin: 10,
+              fontSize: 14,
+            },
+            splitLine: {
+              lineStyle: {
+                color: "#57617B",
+              },
+            },
+          },
+        ],
         series: [
           {
-            type: "pie",
-            data: [
-              {
-                value: 330,
-                name: "用户",
-              },
-              {
-                value: 200,
-                name: "文章数",
-              },
-              {
-                value: 248,
-                name: "留言数",
-              },
-            ],
+            name: "Visitor",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              width: 1,
+            },
+            areaStyle: {
+              color: new charts.graphic.LinearGradient(
+                0,
+                0,
+                0,
+                1,
+                [
+                  {
+                    offset: 0,
+                    color: "rgba(137, 189, 27, 0.3)",
+                  },
+                  {
+                    offset: 0.8,
+                    color: "rgba(137, 189, 27, 0)",
+                  },
+                ],
+                false
+              ),
+              shadowColor: "rgba(0, 0, 0, 0.1)",
+              shadowBlur: 10,
+            },
+            itemStyle: {
+              color: "rgb(137,189,27)",
+              borderColor: "rgba(137,189,2,0.27)",
+              borderWidth: 12,
+            },
+            data: [230, 215, 330, 255, 240, 279, 266],
+          },
+          {
+            name: "Artical",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              width: 1,
+            },
+            areaStyle: {
+              color: new charts.graphic.LinearGradient(
+                0,
+                0,
+                0,
+                1,
+                [
+                  {
+                    offset: 0,
+                    color: "rgba(0, 136, 212, 0.3)",
+                  },
+                  {
+                    offset: 0.8,
+                    color: "rgba(0, 136, 212, 0)",
+                  },
+                ],
+                false
+              ),
+              shadowColor: "rgba(0, 0, 0, 0.1)",
+              shadowBlur: 10,
+            },
+            itemStyle: {
+              color: "rgb(0,136,212)",
+              borderColor: "rgba(0,136,212,0.2)",
+              borderWidth: 12,
+            },
+            data: [220, 180, 195, 165, 172, 165, 122],
+          },
+          {
+            name: "Project",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              width: 1,
+            },
+            areaStyle: {
+              color: new charts.graphic.LinearGradient(
+                0,
+                0,
+                0,
+                1,
+                [
+                  {
+                    offset: 0,
+                    color: "rgba(219, 50, 51, 0.3)",
+                  },
+                  {
+                    offset: 0.8,
+                    color: "rgba(219, 50, 51, 0)",
+                  },
+                ],
+                false
+              ),
+              shadowColor: "rgba(0, 0, 0, 0.1)",
+              shadowBlur: 10,
+            },
+            itemStyle: {
+              color: "rgb(219,50,51)",
+              borderColor: "rgba(219,50,51,0.2)",
+              borderWidth: 12,
+            },
+            data: [220, 182, 165, 175, 162, 191, 154],
+          },
+          {
+            name: "Message",
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 5,
+            showSymbol: false,
+            lineStyle: {
+              width: 1,
+            },
+            areaStyle: {
+              color: new charts.graphic.LinearGradient(
+                0,
+                0,
+                0,
+                1,
+                [
+                  {
+                    offset: 0,
+                    color: "rgba(173, 10, 186 , 0.3)",
+                  },
+                  {
+                    offset: 0.8,
+                    color: "rgba(173, 10 ,186 , 0)",
+                  },
+                ],
+                false
+              ),
+              shadowColor: "rgba(173, 10 ,186, 0.1)",
+              shadowBlur: 10,
+            },
+            itemStyle: {
+              color: "rgb(173, 10 ,186)",
+              borderColor: "rgba(173, 10 ,186,0.2)",
+              borderWidth: 12,
+            },
+            data: [120, 132, 145, 140, 133, 141, 144],
           },
         ],
       },
@@ -102,15 +255,16 @@ export default {
     };
   },
   methods: {
-    // initChart() {
-    //   const articleChart = charts.init(document.getElementById("article"));
-    //   const messageChart = charts.init(document.getElementById("message"));
-    //   articleChart.setOption(this.articalOption);
-    //   messageChart.setOption(this.messageOption);
-    // },
+    initChart() {
+      const articleChart = charts.init(document.getElementById("chart"));
+      articleChart.setOption(this.chartOption);
+    },
+    handleClick(e) {
+      this.$router.push(e);
+    },
   },
   mounted() {
-    // this.initChart();
+    this.initChart();
   },
   components: { Icon },
 };
@@ -163,6 +317,10 @@ export default {
         font-weight: bold;
       }
     }
+  }
+  #chart {
+    width: 100%;
+    height: calc(100% - 200px);
   }
 }
 </style>
