@@ -31,7 +31,7 @@ const chartData = [
         title: "Articals",
         total: 330,
         url: articleBase,
-        route:'/message'
+        route:'/article'
     }
 ];
 export default chartData;
