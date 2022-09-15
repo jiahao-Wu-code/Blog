@@ -11,7 +11,8 @@
         <img :src="item.url" class="icon" :alt="item.title" />
         <div class="desc">
           <span class="title">{{ item.title }}</span>
-          <span class="num">{{ item.total }}</span>
+          <!-- <span class="num">{{ item.total }}</span> -->
+          <CountTo :endValue="item.total" class="num"></CountTo>
         </div>
       </div>
     </div>
@@ -24,6 +25,7 @@ import * as charts from "echarts";
 import Icon from "../../components/Icon/index.vue";
 import chartOption from "./chartOptions";
 import chartData from "./data";
+import CountTo from "@/components/CountTo";
 export default {
   data() {
     return {
@@ -43,7 +45,7 @@ export default {
   mounted() {
     this.initChart();
   },
-  components: { Icon },
+  components: { Icon, CountTo },
 };
 </script>
 <style scoped lang="less">
