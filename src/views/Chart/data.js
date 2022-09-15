@@ -10,28 +10,28 @@ const chartData = [
         title: "Visitors",
         total: 3366,
         url: userBase,
-        route:'/'
+        route: '/'
     },
     {
         id: uuid(),
         title: "Messages",
         total: 520,
         url: msgBase,
-        route:'/message'
+        route: '/message'
     },
     {
         id: uuid(),
         title: "Projects",
         total: 245,
         url: projectBase,
-        route:'/project'
+        route: '/project'
     },
     {
         id: uuid(),
         title: "Articals",
         total: 330,
         url: articleBase,
-        route:'/article'
+        route: '/article'
     }
 ];
 export default chartData;
